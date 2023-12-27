@@ -1,0 +1,53 @@
+﻿
+@model List<Memployee>
+
+@{
+    ViewData["Title"] = "Listar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card">
+
+    <p></p>
+    <hr />
+
+    <div class="card-header">
+        Empleados
+    </div>
+
+    <form id="employeeSearchForm" method="post" action="@Url.Action("BuscarEmpleado")">
+        <input type="text" id="employeeId" name="employeeId" placeholder="Ingrese el ID del empleado">
+        <button type="submit">Buscar Empleado</button>
+    </form>
+    <div class="card-body">
+
+        <p></p>
+        <hr />
+
+     <table class="table table-bordered">
+     <thead align="center">
+         <tr>
+             <th>Id</th>
+             <th>EmployeeName</th>
+             <th>EmployeeSalary</th>
+             <th>EmployeeAge</th>
+             <th>ProfileImage</th>
+             <th>AnnualSalary</th>
+         </tr>
+     </thead>
+        <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                            <td align="center">@item.Id</td>
+                            <td>@item.EmployeeName</td>
+                            <td>@item.EmployeeSalary</td>
+                            <td align="center">@item.EmployeeAge</td>
+                            <td>@item.ProfileImage</td>
+                            <td>@item.AnnualSalary</td>
+                    </tr>
+                }
+        </tbody>
+     </table>
+    </div>
+</div>

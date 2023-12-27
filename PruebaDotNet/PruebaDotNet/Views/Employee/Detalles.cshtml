@@ -1,0 +1,31 @@
+﻿@model Memployee
+
+@{
+    ViewData["Title"] = "Detalles";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div>
+    <h2>Detalles del Empleado</h2>
+    <hr />
+    <form id="employeeSearchForm" method="post" action="@Url.Action("BuscarEmpleado")">
+        <input type="text" id="employeeId" name="employeeId" placeholder="Ingrese el ID del empleado">
+        <button type="submit">Buscar Empleado</button>
+    </form>
+    <dl class="row">
+        <dt class="col-sm-3">ID:</dt>
+        <dd class="col-sm-9">@Model.Id</dd>
+        <dt class="col-sm-3">Nombre:</dt>
+        <dd class="col-sm-9">@Model.EmployeeName</dd>
+        <dt class="col-sm-3">Salario Mensual:</dt>
+        <dd class="col-sm-9">@Model.EmployeeSalary</dd>
+        <dt class="col-sm-3">Edad:</dt>
+        <dd class="col-sm-9">@Model.EmployeeAge</dd>
+        <dt class="col-sm-3">Imagen de Perfil:</dt>
+        <dd class="col-sm-9">
+            <img src="@Model.ProfileImage" alt="Imagen de perfil" style="max-width: 200px; max-height: 200px;" />
+        </dd>
+        <dt class="col-sm-3">Salario Anual:</dt>
+        <dd class="col-sm-9">@Model.AnnualSalary</dd>
+    </dl>
+</div>
